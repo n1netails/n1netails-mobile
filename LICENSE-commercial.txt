@@ -1,0 +1,24 @@
+Commercial License for N1netails
+
+Copyright (c) 2025 N1netails
+
+This software is dual-licensed:
+
+1. Under the GNU Affero General Public License v3.0 (AGPLv3) for open source usage.
+2. Under a commercial license for customers who require proprietary use, support, or enterprise features.
+
+If you do not wish to be bound by the AGPLv3, or you require a commercial license, you must obtain a separate license from N1netails.
+
+Commercial license grants may include:
+- The right to keep source code modifications private
+- Priority bug fixes and security patches
+- Integration support and onboarding assistance
+- Access to proprietary features and plugins
+- Service Level Agreements (SLAs)
+
+To purchase a commercial license or inquire about enterprise support, contact:
+
+N1netails
+Email: shahidfoy@gmail.com
+
+This license file does not constitute a legal agreement. A signed commercial agreement will be required.
