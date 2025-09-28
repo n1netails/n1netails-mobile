@@ -1,0 +1,40 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Alerts
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Alerts</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-list>
+    <ion-card *ngFor="let alert of alerts" [color]="alert.status === 'OPEN' ? 'light' : 'medium'">
+      <ion-card-header>
+        <ion-card-title [color]="alert.level === 'CRITICAL' ? 'danger' : alert.level === 'ERROR' ? 'warning' : 'primary'">
+          {{ alert.title }}
+        </ion-card-title>
+        <ion-card-subtitle>
+          {{ alert.level }} - {{ alert.status }}
+        </ion-card-subtitle>
+      </ion-card-header>
+
+      <ion-card-content>
+        <p>{{ alert.description }}</p>
+        <p><strong>Details:</strong> {{ alert.details }}</p>
+        <p><strong>Timestamp:</strong> {{ alert.timestamp | date:'medium' }}</p>
+        <div *ngIf="alert.assignedUsername">
+          <strong>Assigned to:</strong> {{ alert.assignedUsername }}
+        </div>
+        <div *ngIf="alert.resolvedTimestamp">
+          <strong>Resolved:</strong> {{ alert.resolvedTimestamp | date:'medium' }}
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
+</ion-content>

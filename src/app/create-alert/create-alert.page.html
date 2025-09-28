@@ -1,0 +1,78 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Create Alert
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Create Alert</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <form (ngSubmit)="createAlert()">
+    <ion-list>
+      <ion-item>
+        <ion-label position="stacked">Title</ion-label>
+        <ion-input [(ngModel)]="alert.title" name="title" type="text" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Description</ion-label>
+        <ion-textarea [(ngModel)]="alert.description" name="description" required></ion-textarea>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Details</ion-label>
+        <ion-textarea [(ngModel)]="alert.details" name="details"></ion-textarea>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Level</ion-label>
+        <ion-select [(ngModel)]="alert.level" name="level" interface="popover">
+          <ion-select-option value="INFO">Info</ion-select-option>
+          <ion-select-option value="WARNING">Warning</ion-select-option>
+          <ion-select-option value="ERROR">Error</ion-select-option>
+          <ion-select-option value="CRITICAL">Critical</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Type</ion-label>
+        <ion-select [(ngModel)]="alert.type" name="type" interface="popover">
+          <ion-select-option value="MANUAL_ALERT">Manual Alert</ion-select-option>
+          <ion-select-option value="SYSTEM_ALERT">System Alert</ion-select-option>
+          <ion-select-option value="DATABASE_ALERT">Database Alert</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+  </form>
+
+  <ion-list>
+    <ion-item>
+      <ion-label position="stacked">Metadata Key</ion-label>
+      <ion-input [(ngModel)]="metaKey" name="metaKey" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Metadata Value</ion-label>
+      <ion-input [(ngModel)]="metaValue" name="metaValue" type="text"></ion-input>
+    </ion-item>
+    <ion-button expand="block" (click)="addMetadata()" [disabled]="!metaKey || !metaValue">Add Metadata</ion-button>
+  </ion-list>
+
+  <ion-list *ngIf="getObjectKeys(alert.metadata).length > 0">
+    <ion-item *ngFor="let key of getObjectKeys(alert.metadata)">
+      <ion-label>{{ key }}: {{ alert.metadata[key] }}</ion-label>
+      <ion-button slot="end" color="danger" (click)="removeMetadata(key)">
+        Remove
+      </ion-button>
+    </ion-item>
+  </ion-list>
+
+  <ion-button expand="block" (click)="createAlert()" color="primary" class="ion-margin-top">
+    Create Alert
+  </ion-button>
+</ion-content>
