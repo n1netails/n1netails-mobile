@@ -12,3 +12,8 @@ N1netails is an open-source project that provides practical alerts and monitorin
 to identify issues — or if your application lacks any alerting at all — N1netails offers a straightforward way to gain 
 clarity on problems affecting your applications.
 
+## Support
+
+For community users, open an issue on GitHub or Join our Discord
+
+[![Join our Discord](https://img.shields.io/badge/Join_Discord-7289DA?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/ma9CCw7F2x)
